@@ -1,0 +1,2 @@
+# template
+Boilerplate Python project
