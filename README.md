@@ -1,2 +1,7 @@
 # template
-Boilerplate Python project
+
+## Description
+
+## How to install
+
+## How to use
