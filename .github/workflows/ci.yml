@@ -4,6 +4,8 @@ on:
   push:
     paths-ignore:
       - 'README.md'
+      - 'LICENSE.md'
+      - '.gitignore'
   pull_request:
 
 jobs:
@@ -52,9 +54,9 @@ jobs:
         with:
           python-version: "3.10"
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirements-dev.txt
       - name: Lint
-        run: pylint pwned_pw.py
+        run: pylint --recursive=yes .
 
   test:
     needs: skip_duplicate
