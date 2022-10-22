@@ -1,6 +1,5 @@
 black
 coverage
-pipenv
 pylint
 pylint-exit
 pytest
