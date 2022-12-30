@@ -29,10 +29,11 @@ jobs:
         run: pylint --recursive=yes --output-format=parseable --output=lintreport.txt . || pylint-exit $?
       - name: Unit Test
         run: |
-          coverage run -m py.test -v --junitxml=testresults.xml
+          coverage run -m pytest -v --junitxml=testresults.xml
           coverage xml
+          sed -i 's/\/home\/runner\/work\/epage\/epage/\/github\/workspace/g' coverage.xml
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
