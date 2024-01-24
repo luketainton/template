@@ -8,11 +8,13 @@ on:
       - 'README.md'
       - 'LICENSE.md'
       - '.gitignore'
-      - 'CODEOWNERS'
-      - 'renovate.json'
+      - '.github/CODEOWNERS'
+      - '.github/renovate.json'
+      - '.github/dependabot.yml'
 
 jobs:
   ci:
     uses: luketainton/gha-workflows/.github/workflows/ci-python.yml@main
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
